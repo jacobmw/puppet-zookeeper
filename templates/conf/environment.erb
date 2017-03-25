@@ -25,6 +25,3 @@ JAVA_OPTS="<%= scope.lookupvar("zookeeper::java_opts") %>"
 <% if scope.lookupvar('zookeeper::use_sasl_auth') -%>
 JAVA_OPTS="${JAVA_OPTS} -Djava.security.auth.login.config=<%= File.join(scope.lookupvar("zookeeper::cfg_dir"), "jaas.conf") -%>"
 <% end -%>
-# will be concatenated with JVMFLAGS var
-# see https://github.com/apache/zookeeper/blob/master/bin/zkServer.sh#L78
-export SERVER_JVMFLAGS=$JAVA_OPTS
